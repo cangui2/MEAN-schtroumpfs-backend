@@ -5,7 +5,7 @@ const Role = db.role;
 
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-
+// Request signup
 exports.signup = (req, res) => {
     const user = new User({
         username: req.body.username,
@@ -67,7 +67,7 @@ exports.signup = (req, res) => {
         }
     });
 };
-
+// Request login
 exports.signin = (req, res) => {
     User.findOne({
         username: req.body.username
@@ -143,7 +143,6 @@ exports.update = (req, res) => {
         });
 
 };
-
 // Delete
 exports.delete = (req, res) => {
     const id = req.params.id;
@@ -166,6 +165,7 @@ exports.delete = (req, res) => {
             });
         });
 };
+// Search All User
 exports.findAllUser =(req,res)=>{
     User.find({}, function(err, users) {
         const userMap = {};
@@ -179,4 +179,20 @@ exports.findAllUser =(req,res)=>{
             console.log(err)
         }
     });
+};
+// Search by Id
+exports.findById = (req, res) => {
+    const id = req.params.id;
+
+    User.findById(id)
+        .then(data => {
+            if (!data)
+                res.status(404).send({ message: "Not found user with id " + id });
+            else res.send(data);
+        })
+        .catch(err => {
+            res
+                .status(500)
+                .send({ message: "Error retrieving user with id=" + id });
+        });
 };

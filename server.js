@@ -36,7 +36,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // routes
 require('./routes/auth.routes')(app);
-require('./routes/user.routes')(app);
 
 
 // set port, listen for requests
