@@ -196,3 +196,20 @@ exports.findById = (req, res) => {
                 .send({ message: "Error retrieving user with id=" + id });
         });
 };
+
+exports.favorie =(req,res)=> {
+    const id = req.params.id;
+    const friends = req.params.fav
+
+    User.findByIdAndUpdate(
+        { _id: id },
+        { $push: { favorie: friends  } },
+        function (error, success) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log(success);
+            }
+        });
+
+}

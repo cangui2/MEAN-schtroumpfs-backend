@@ -15,6 +15,12 @@ const User = mongoose.model(
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Role"
             }
+        ],
+        favorie:[
+            {
+                type: mongoose.Schema.Types.String,
+                ref:"User"
+            }
         ]
     })
 );
