@@ -203,7 +203,8 @@ exports.favorie =(req,res)=> {
 
     User.findByIdAndUpdate(
         { _id: id },
-        { $push: { favorie: friends  } },
+        { $push: {favorie: friends  } },
+        {multi:true},
         function (error, success) {
             if (error) {
                 console.log(error);
@@ -213,3 +214,21 @@ exports.favorie =(req,res)=> {
         });
 
 }
+exports.Removefavorie =(req,res)=> {
+    const id = req.params.id;
+    const friends = req.params.fav
+
+    User.findByIdAndUpdate(
+        { _id: id },
+        { $pull: {favorie: friends  } },
+        {multi:true},
+        function (error, success) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log(success);
+            }
+        });
+
+}
+

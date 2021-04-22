@@ -28,5 +28,6 @@ module.exports = function(app) {
     app.get('/api/auth/alluser',controller.findAllUser)
     app.get('/api/auth/user/:id',controller.findById);
     app.put('/api/auth/user/test/:id/:fav',controller.favorie);
+    app.put('/api/auth/user/test2/:id/:fav',controller.Removefavorie);
 
 };
