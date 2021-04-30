@@ -7,7 +7,7 @@ const app = express();
 const corsOptions = {
     origin: "http://democrud.canguidev.site/home"
 };
-app.use(cors(corsOptions));
+app.use(cors());
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
