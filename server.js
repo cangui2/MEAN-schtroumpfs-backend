@@ -8,13 +8,14 @@ const corsOptions = {
     origin: "http://democrud.canguidev.site/home"
 };
 app.use(cors());
-
+app.get('/test',(require,response) => response.send("ok marchue"))
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = require("./models");
+const {response} = require("express");
 const Role = db.role;
 db.mongoose
     .connect(`mongodb+srv://cangui:134668@cluster0.hs2f6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, {
