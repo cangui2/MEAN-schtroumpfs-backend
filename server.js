@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 const corsOptions = {
-    origin: "http://democrud.canguidev.site"
+    origin: "http://democrud.canguidev.site/home"
 };
 app.use(cors(corsOptions));
 
